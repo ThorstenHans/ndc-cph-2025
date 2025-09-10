@@ -11,11 +11,13 @@ Signing and Signature verification, are shared across all applications, no matte
 Whenever a consumer registers to receive webhooks from Acme, the following steps are performed:
 
 - Webhook Consumer sends `POST` request to `/registrations` passing desired webhook event type and the receiving URL
+- ACME validates incoming request payload
 - ACME generates a signing key for the webhook consumer 
 - ACME sends verification request (`POST`) to receiving URL including consumer specific key and a `handshake=true` query string parameter
 - Webhook consumer must respond with HTTP `200` to one-time verification request
 - ACME stores webhook consumer in its data store
 
+![Webhook Registration Flow](./assets/ndc-sample-registration.png)
 
 ## Webhook Firing Flow
 
@@ -26,7 +28,7 @@ ACME could fire webhooks based on different circumstances (e.g. data has been ad
 - Webhook consumer specific key is used to compute payload signature
 - A `POST` request is sent to the receiving URL which contains the payload as request body and the signature as HTTP header
 
-![What happens when a webhook is fired](./assets/ndc-sample-webhook-firing.png)
+![Webhook firing flow](./assets/ndc-sample-webhook-firing.png)
 
 ## Prerequisites
 
