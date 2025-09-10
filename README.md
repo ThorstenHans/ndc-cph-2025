@@ -26,7 +26,7 @@ ACME could fire webhooks based on different circumstances (e.g. data has been ad
 - Webhook consumer specific key is used to compute payload signature
 - A `POST` request is sent to the receiving URL which contains the payload as request body and the signature as HTTP header
 
-~[What happens when a webhook is fired](./assets/ndc-sample-webhook-firing.png)
+![What happens when a webhook is fired](./assets/ndc-sample-webhook-firing.png)
 
 ## Prerequisites
 
